@@ -37,8 +37,6 @@
 	</beans:bean>
 
 
-
-
 	<context:component-scan base-package="com.bitcamp.open" />
 
 
@@ -86,7 +84,8 @@
 	</mvc:interceptors>
 
 	<!-- MyBatis & Spring 연동 -->
-	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<beans:bean id="sqlSessionFactory" 
+		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="mapperLocations"
 			value="classpath:com/bitcamp/open/mybatis/mapper/*.xml" />
@@ -103,7 +102,6 @@
 		class="com.bitcamp.open.member.dao.MemberMyBatisDao" />
 
 
-
 	<!-- 트랜젝션 처리 시작 -->
 	<beans:bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -116,13 +114,13 @@
 
 
 
-	<!-- 메일발송용 -->
+	<!-- 메일 보내기 설정 -->
 	<beans:bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<beans:property name="host" value="smtp.gmail.com" />
 		<beans:property name="port" value="587" /><!-- 465 or 25 -->
 		<beans:property name="username" value="sojiyoon7@gmail.com" />
-		<beans:property name="password" value="1234" />
+		<beans:property name="password" value="123456" />
 		<beans:property name="defaultEncoding" value="utf-8" />
 		<beans:property name="javaMailProperties">
 			<beans:props>
@@ -134,10 +132,13 @@
 		</beans:property>
 	</beans:bean>
 
-
-	<!-- 회원가입시 메일 보내기 기능 클래스 -->
-	<beans:bean id="SimpleRegistrationNotifier"
+	<!-- 회원가입 시 메일보내기 기능 클래스  -->
+	<beans:bean id="simpleRegistrationNotifier"
 		class="com.bitcamp.open.member.service.SimpleRegistrationNotifier" />
+		
+	<!-- 회원가입 시 메일보내기 기능 클래스  -->
+	<beans:bean id="simpleRegistrationNotifier2"
+		class="com.bitcamp.open.member.service.SimpleRegistrationNotifier2" />
 
 
 </beans:beans>

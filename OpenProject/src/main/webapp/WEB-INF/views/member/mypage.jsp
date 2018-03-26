@@ -25,10 +25,5 @@
 ${member.member_id} / ${member.member_name}  / ${member.photo}
 
 
-
-
-
-
-
 </body>
 </html>

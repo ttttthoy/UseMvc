@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bitcamp.open.member.model.Member;
 import com.bitcamp.open.member.service.MemberLoginService;
+import com.bitcamp.open.member.service.SimpleRegistrationNotifier;
 
 @Controller
 @RequestMapping("member/login")
@@ -18,6 +19,9 @@ public class MemberLoginController {
 	@Autowired
 	private MemberLoginService memberLoginService;
 	
+	
+	@Autowired
+	private SimpleRegistrationNotifier notifier;
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String loginForm() {
@@ -40,6 +44,7 @@ public class MemberLoginController {
 		Member member = memberLoginService.loginChk(id, pw);
 		// null / Member 객체
 		
+		
 		if (member == null) {
 			return "member/loginFail";
 		}
@@ -51,16 +56,12 @@ public class MemberLoginController {
 		
 		System.out.println(session.getAttribute("loginInfo"));
 		
-		
+	
 		notifier.sendMail(member.getMember_id(), "로그인이 성공적으로 처리되었습니다.");
 		
 		
 		return view;
 	}
-	
-	
-	
-	
 	
 	
 	

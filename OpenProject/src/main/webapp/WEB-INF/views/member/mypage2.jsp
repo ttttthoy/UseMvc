@@ -7,12 +7,11 @@
 <title>My Page</title>
 <style>
 	div{
-		width: 200px;
-		height: 200px;
+		width: 100px;
+		height: 100px;
 		
 		border-radius : 100px; 
 		border : 1px solid #DDDDDD;
-		
 		
 		background-image: url('../../uploadfile/memberphoto/${member.photo}');
 		background-size: 100%;
@@ -24,7 +23,6 @@
 
 <div id="my"> </div>
 ${member.member_id} / ${member.member_name}  / ${member.photo}
-
 
 
 </body>

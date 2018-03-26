@@ -12,27 +12,21 @@ import com.bitcamp.open.member.service.MemberListService;
 
 @Controller
 public class MemberListController {
-	
+
 	@Autowired
 	private MemberListService service;
 
 	@RequestMapping("/member/memberList")
 	public String memberList(Model model) {
-		
-		List<Member> members = service.getMemberList();	
-		
-		model.addAttribute("members", members);	
-		
+
+		List<Member> members = service.getMemberList();
+
+		model.addAttribute("members", members);
+
 		return "member/memberList";
+
+	
+	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

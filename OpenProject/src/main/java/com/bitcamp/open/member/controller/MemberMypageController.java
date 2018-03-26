@@ -28,12 +28,7 @@ public class MemberMypageController {
 		
 	}
 	
-	// http://localhost:8080/open/member/mypage/ttt
-	// ttt 값을 받아 쓴다
-	// /member/userinfo?idx=123
-	// /member/userinfo/123
-	// /member/ryuyj/info
-	// /member/{id}/info
+
 	@RequestMapping("/mypage/{id}/mypage")
 	public String mypageDetail(@PathVariable("id") String id, Model model) {
 		
